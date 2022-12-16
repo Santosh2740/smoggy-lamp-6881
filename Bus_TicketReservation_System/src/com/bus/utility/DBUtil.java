@@ -1,6 +1,7 @@
 package com.bus.utility;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 public class DBUtil {
@@ -13,7 +14,7 @@ public class DBUtil {
 			e.printStackTrace();
 		}
 		
-		String url = "jdbc:mysql://localhost:3306/busreservation";
+		String url = "jdbc:mysql://localhost:3306/reservationofbus";
 		
 		try {
 			connect =  DriverManager.getConnection(url, "root", "root");
