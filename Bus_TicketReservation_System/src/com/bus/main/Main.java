@@ -34,23 +34,28 @@ public class Main {
 		}
 		catch (InputMismatchException e) {
 			System.out.println(ConsoleColor.RED_BACKGROUND + "Input type should be number" + ConsoleColor.RESET);
+			System.out.println();
 			AdminOrCustomer();
 		}
 		
 		if (choice == 1) {
-			System.out.println(ConsoleColor.GREEN_STRIKE + "Welcome Admin ! Please Login to your account" + ConsoleColor.RESET);
+			System.out.println(ConsoleColor.YELLOW_UNDERLINED + "Welcome Admin ! Please Login to your account" + ConsoleColor.RESET);
+			System.out.println();
 			AdminLogin();
 		}
 		else if (choice == 2) {
-			System.out.println(ConsoleColor.GREEN_STRIKE + "Welcome Customer !" + ConsoleColor.RESET);
+			System.out.println(ConsoleColor.YELLOW_UNDERLINED + "Welcome Customer !" + ConsoleColor.RESET);
+			System.out.println();
 			customerLoginOrSignup();
 		}
 		else if (choice == 3) {
-			System.out.println(ConsoleColor.GREEN_STRIKE + "Thank you ! Visit again" + ConsoleColor.RESET);
+			System.out.println(ConsoleColor.YELLOW_UNDERLINED + "Thank you ! Visit again" + ConsoleColor.RESET);
+			System.out.println();
 			System.exit(0);
 		}
 		else {
-			System.out.println(ConsoleColor.GREEN_STRIKE + "Please choose a number from below options" + ConsoleColor.RESET);
+			System.out.println(ConsoleColor.YELLOW_UNDERLINED + "Please choose a number from below options" + ConsoleColor.RESET);
+			System.out.println();
 			AdminOrCustomer();
 		}
 	}
@@ -115,7 +120,7 @@ public class Main {
 				case 4 : AdminOrCustomer();
 				break;	
 				case 5 : {
-					System.out.println(ConsoleColor.GREEN_STRIKE+ "Thank you ! Visit again" + ConsoleColor.RESET);
+					System.out.println(ConsoleColor.YELLOW_UNDERLINED+ "Thank you ! Visit again" + ConsoleColor.RESET);
 					System.exit(0);
 				}
 			}
@@ -143,16 +148,19 @@ public class Main {
 				AdminOrCustomer();
 			}
 			else if (choice == 4) {
-				System.out.println(ConsoleColor.GREEN_STRIKE + "Thank you ! Visit again" + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.YELLOW_UNDERLINED + "Thank you ! Visit again" + ConsoleColor.RESET);
+				System.out.println();
 				System.exit(0);
 			}
 			else {
 				System.out.println(ConsoleColor.RED_BACKGROUND + "Please choose a number from below options" + ConsoleColor.RESET);
+				System.out.println();
 				customerLoginOrSignup();
 			}
 		}
 		catch (InputMismatchException e) {
 			System.out.println(ConsoleColor.RED_BACKGROUND + "Input type should be number" + ConsoleColor.RESET);
+			System.out.println();
 			customerLoginOrSignup();
 		}
 		
@@ -166,6 +174,7 @@ public class Main {
 		}
 		else {
 			System.out.println(ConsoleColor.GREEN_BACKGROUND + "Login Successfull" + ConsoleColor.RESET);
+			System.out.println();
 			customerMethods(customer);
 		}
 		
@@ -175,7 +184,8 @@ public class Main {
 		boolean flag = CusSignUp2usecase.cusSignUp();
 		
 		if (flag) {
-			System.out.println(ConsoleColor.GREEN_STRIKE + "Login to your Account" + ConsoleColor.RESET);
+			System.out.println(ConsoleColor.YELLOW_UNDERLINED + "Login to your Account" + ConsoleColor.RESET);
+			System.out.println();
 			customerLogin();
 		}
 		else {
@@ -200,6 +210,7 @@ public class Main {
 			choice = sc.nextInt();
 			if (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5) {
 				System.out.println(ConsoleColor.RED_BACKGROUND + "Please choose a number from below options" + ConsoleColor.RESET);
+				System.out.println();
 				customerMethods(customer);
 			}
 			else customerChoice(choice, customer);
@@ -207,6 +218,7 @@ public class Main {
 		catch (InputMismatchException e) {
 			
 			System.out.println(ConsoleColor.RED_BACKGROUND + "Input type should be number" + ConsoleColor.RESET);
+			System.out.println();
 			customerMethods(customer);
 		}
 	}
@@ -232,7 +244,8 @@ public class Main {
 			customerLoginOrSignup();
 		}
 		case 5 : {
-			System.out.println(ConsoleColor.GREEN_STRIKE + "Thank you ! Visit again" + ConsoleColor.RESET);
+			System.out.println(ConsoleColor.YELLOW_UNDERLINED + "Thank you ! Visit again" + ConsoleColor.RESET);
+			System.out.println();
 			System.exit(0);
 		}
 	}

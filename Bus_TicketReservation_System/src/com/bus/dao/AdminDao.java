@@ -4,9 +4,9 @@ import com.bus.bean.Bus;
 
 public interface AdminDao {
 	
-	public final String username = "Admin";
+	public final String username = "admin";
 	
-	public final String password = "1234";
+	public final String password = "123";
 
 	public String adminLogin(String username, String password);
 

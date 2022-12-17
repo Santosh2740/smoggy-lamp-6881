@@ -13,6 +13,7 @@ public class UpdateStatususecase {
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.print(ConsoleColor.ORANGE + "Enter customer Id : " + ConsoleColor.RESET);
+		System.out.println();
 		int cusId = sc.nextInt();
 		
 		AdminDao dao = new AdminDaoImpl();
@@ -24,7 +25,9 @@ public class UpdateStatususecase {
 			if (result.charAt(i) == 'n') flag = false;
 		}
 	
-		if (flag) System.out.println(ConsoleColor.GREEN_BACKGROUND + result + ConsoleColor.RESET);
+		if (flag) {
+			System.out.println(ConsoleColor.GREEN_BACKGROUND + result + ConsoleColor.RESET);
+		}
 		else System.out.println(ConsoleColor.RED_BACKGROUND + result + ConsoleColor.RESET);
 		
 	}
