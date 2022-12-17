@@ -18,23 +18,23 @@ public class CusSignUp2usecase {
 		try {
 			Scanner sc = new Scanner(System.in);
 			
-			System.out.println(ConsoleColor.ORANGE + "Enter Username" + ConsoleColor.RESET);
+			System.out.print(ConsoleColor.ORANGE + "Enter Username : " + ConsoleColor.RESET);
 			String username = sc.next();
 			
-			System.out.println(ConsoleColor.ORANGE + "Enter Password" + ConsoleColor.RESET);
+			System.out.print(ConsoleColor.ORANGE + "Enter Password : " + ConsoleColor.RESET);
 			String password = sc.next();
 			
-			System.out.println(ConsoleColor.ORANGE + "Enter First Name" + ConsoleColor.RESET);
+			System.out.print(ConsoleColor.ORANGE + "Enter First Name : " + ConsoleColor.RESET);
 			String firstName = sc.next();
 			
-			System.out.println(ConsoleColor.ORANGE + "Enter Last Name" + ConsoleColor.RESET);
+			System.out.print(ConsoleColor.ORANGE + "Enter Last Name : " + ConsoleColor.RESET);
 			String lastName = sc.next();
 			
 			sc.nextLine();
-			System.out.println(ConsoleColor.ORANGE + "Enter Address" + ConsoleColor.RESET);
+			System.out.print(ConsoleColor.ORANGE + "Enter Address : " + ConsoleColor.RESET);
 			String address = sc.nextLine();
 			
-			System.out.println(ConsoleColor.ORANGE + "Enter Mobile" + ConsoleColor.RESET);
+			System.out.print(ConsoleColor.ORANGE + "Enter Mobile : " + ConsoleColor.RESET);
 			String mobile = sc.next();
 			
 			CustomerDao dao = new CustomerDaoImpl();

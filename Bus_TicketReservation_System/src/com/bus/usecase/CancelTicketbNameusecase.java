@@ -15,7 +15,7 @@ public class CancelTicketbNameusecase {
 
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println(ConsoleColor.ORANGE + "Enter Bus Name" + ConsoleColor.RESET);
+		System.out.print(ConsoleColor.ORANGE + "Enter Bus Name : " + ConsoleColor.RESET);
 		String bName = sc.nextLine();
 		
 		CustomerDao dao = new CustomerDaoImpl();

@@ -16,12 +16,12 @@ public class BookTicketbNameusecase {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println(ConsoleColor.ORANGE + "Enter Bus Name" + ConsoleColor.RESET);
+		System.out.print(ConsoleColor.ORANGE + "Enter Bus Name : " + ConsoleColor.RESET);
 		String bName = sc.next();
 		
 		CustomerDao dao = new CustomerDaoImpl();
 		try {
-			System.out.println(ConsoleColor.ORANGE + "Enter no. of Tickets to Book" + ConsoleColor.RESET);
+			System.out.print(ConsoleColor.ORANGE + "Enter no. of Tickets to Book : " + ConsoleColor.RESET);
 			int no = sc.nextInt();
 			
 			int cusId = customer.getCustomerId();

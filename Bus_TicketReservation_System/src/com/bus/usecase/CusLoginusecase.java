@@ -20,7 +20,7 @@ public class CusLoginusecase {
 			
 			Scanner sc = new Scanner (System.in);
 			
-			System.out.println(ConsoleColor.ORANGE + "Enter Username" + ConsoleColor.RESET);
+			System.out.print(ConsoleColor.ORANGE + "Enter Username : " + ConsoleColor.RESET);
 			String username = sc.next();
 			
 			System.out.println(ConsoleColor.ORANGE + "Enter Password" + ConsoleColor.RESET);

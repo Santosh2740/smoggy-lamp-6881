@@ -12,7 +12,7 @@ public class UpdateStatususecase {
 	public static void updateStatus() {
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.println(ConsoleColor.ORANGE + "Enter customer Id" + ConsoleColor.RESET);
+		System.out.print(ConsoleColor.ORANGE + "Enter customer Id : " + ConsoleColor.RESET);
 		int cusId = sc.nextInt();
 		
 		AdminDao dao = new AdminDaoImpl();

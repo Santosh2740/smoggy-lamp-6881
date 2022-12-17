@@ -16,7 +16,8 @@ import com.bus.usecase.ViewAllTicketsusecase;
 import com.bus.usecase.ViewTicketusecase;
 public class Main {
 	static void AdminOrCustomer() {
-		System.out.println(ConsoleColor.BLUE_BRIGHT + "+---------------------------+" + "\n"
+		System.out.println();
+		System.out.println(ConsoleColor.BLUE_BRIGHT  + "+---------------------------+" + "\n"
 						 						   + "| 1. Login As Administrator |" + "\n"
 						 						   + "| 2. Login As Customer      |" + "\n"
 						 						   + "| 3. Exit                   |" + "\n"
@@ -65,6 +66,7 @@ public class Main {
 	}
 	
 	static void adminMethods() {
+		System.out.println();
 		System.out.println(ConsoleColor.BLUE_BRIGHT + "+--------------------------------+" + "\n"
 						 + "| Welcome Admin                  |" + "\n"
 						 + "| 1. Add Bus                     |" + "\n"
@@ -120,7 +122,8 @@ public class Main {
 	}
 	
 	static void customerLoginOrSignup() {
-		System.out.println(ConsoleColor.BLUE_BRIGHT + "+--------------------------------+" + "\n"
+		System.out.println();
+		System.out.println(ConsoleColor.ORANGE+ "+--------------------------------+" + "\n"
 				                                + "| 1. Login to your Account       |" + "\n"
 				                                + "| 2. Don't have Account? Sign Up |" + "\n"
 				                                + "| 3. Back                        |" + "\n"
@@ -181,7 +184,8 @@ public class Main {
 	}
 	
 	static void customerMethods(Customer customer) {
-		System.out.println(ConsoleColor.BLUE_BRIGHT + "+--------------------------------+" + "\n"
+		System.out.println();
+		System.out.println(ConsoleColor.ORANGE + "+--------------------------------+" + "\n"
 				 		 + "| 1. Book Bus Ticket             |" + "\n"
 				         + "| 2. Cancel Bus Ticket           |" + "\n"
 				         + "| 3. View Status of your Tickets |" + "\n"
