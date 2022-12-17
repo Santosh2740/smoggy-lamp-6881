@@ -34,7 +34,6 @@ public class Main {
 		}
 		catch (InputMismatchException e) {
 			System.out.println(ConsoleColor.RED_BACKGROUND + "Input type should be number" + ConsoleColor.RESET);
-			System.out.println();
 			AdminOrCustomer();
 		}
 		
