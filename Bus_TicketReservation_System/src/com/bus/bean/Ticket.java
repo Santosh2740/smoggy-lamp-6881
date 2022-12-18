@@ -3,16 +3,16 @@ package com.bus.bean;
 public class Ticket {
 
 	private int bId;
-	private int cusId;
+	private int customerId;
 	private int busNo;
 	private int seatFrom;
 	private int seatTo;
 	private boolean status;
 
-	public Ticket(int bId, int cusId, int busNo, int seatFrom, int seatTo, boolean status) {
+	public Ticket(int bId, int customerId, int busNo, int seatFrom, int seatTo, boolean status) {
 		super();
 		this.bId = bId;
-		this.cusId = cusId;
+		this.customerId = customerId;
 		this.busNo = busNo;
 		this.seatFrom = seatFrom;
 		this.seatTo = seatTo;
@@ -32,12 +32,12 @@ public class Ticket {
 		this.bId = bId;
 	}
 
-	public int getCusId() {
-		return cusId;
+	public int getcustomerId() {
+		return customerId;
 	}
 
-	public void setCusId(int cusId) {
-		this.cusId = cusId;
+	public void setcustomerId(int customerId) {
+		this.customerId = customerId;
 	}
 
 	public int getBusNo() {
@@ -74,7 +74,7 @@ public class Ticket {
 
 	@Override
 	public String toString() {
-		return "Ticket [bId=" + bId + ", cusId=" + cusId + ", busNo=" + busNo + ", seatFrom=" + seatFrom + ", seatTo="
+		return "Ticket [bId=" + bId + ", customerId=" + customerId + ", busNo=" + busNo + ", seatFrom=" + seatFrom + ", seatTo="
 				+ seatTo + ", status=" + status + "]";
 	}
 

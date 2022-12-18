@@ -17,7 +17,7 @@ public class AddBusNo1 {
 			int busNo = sc.nextInt();
 
 			System.out.print(ConsoleColor.ORANGE + "Enter bus name : " + ConsoleColor.RESET);
-			String bName = sc.next();
+			String busName = sc.next();
 
 			System.out.print(ConsoleColor.ORANGE + "Enter Route from : " + ConsoleColor.RESET);
 			String routeFrom = sc.next();
@@ -48,7 +48,7 @@ public class AddBusNo1 {
 
 			AdminDao dao = new AdminDaoImpl();
 
-			String result = dao.addBus(busNo, bName, routeFrom, routeTo, bType, departure, arrival, totalSeats,
+			String result = dao.addBus(busNo, busName, routeFrom, routeTo, bType, departure, arrival, totalSeats,
 					availSeats, fare);
 
 			if (result.equals("Bus added Successfully")) {

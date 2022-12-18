@@ -9,7 +9,7 @@ import com.bus.color.ConsoleColor;
 import com.bus.dao.CustomerDao;
 import com.bus.dao.CustomerDaoImpl;
 
-public class CusSignUp1usecase {
+public class CustomersSignUpNo1usecase {
 
 	public static boolean cusSignUp() {
 		

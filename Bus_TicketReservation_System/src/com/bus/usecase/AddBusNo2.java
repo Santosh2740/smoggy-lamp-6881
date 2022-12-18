@@ -17,7 +17,7 @@ public class AddBusNo2 {
 			int busNo = sc.nextInt();
 			
 			System.out.print(ConsoleColor.ORANGE + "Enter bus name : " + ConsoleColor.RESET);
-			String bName = sc.next();
+			String busName = sc.next();
 			
 			System.out.print(ConsoleColor.ORANGE + "Enter Route from : " + ConsoleColor.RESET);
 			String routeFrom = sc.next();
@@ -44,7 +44,7 @@ public class AddBusNo2 {
 			System.out.print(ConsoleColor.ORANGE + "Enter fare : " + ConsoleColor.RESET);
 			int fare = sc.nextInt();
 			
-			Bus bus = new Bus(busNo, bName, routeFrom, routeTo, bType, departure, arrival, totalSeats, availSeats, fare);
+			Bus bus = new Bus(busNo, busName, routeFrom, routeTo, bType, departure, arrival, totalSeats, availSeats, fare);
 			
 			AdminDao dao = new AdminDaoImpl();
 			

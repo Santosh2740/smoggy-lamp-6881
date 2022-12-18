@@ -12,9 +12,9 @@ public interface CustomerDao {
 	
 	public Customer cusLogin (String username, String password) throws CustomerException;
 	
-	public String bookTicket (String bName, int cusId, int no) throws BusException;
+	public String bookTicket (String bName, int customerId, int no) throws BusException;
 	
-	public String cancelTicket(String bName, int cusId) throws BusException;
+	public String cancelTicket(String bName, int customerId) throws BusException;
 	
-	public void viewTicket(int cusId);
+	public void viewTicket(int customerId);
 }

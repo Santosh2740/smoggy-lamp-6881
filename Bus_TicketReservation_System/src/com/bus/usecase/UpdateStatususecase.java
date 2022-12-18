@@ -14,11 +14,11 @@ public class UpdateStatususecase {
 		Scanner sc = new Scanner(System.in);
 		System.out.print(ConsoleColor.ORANGE + "Enter customer Id : " + ConsoleColor.RESET);
 		System.out.println();
-		int cusId = sc.nextInt();
+		int customerId = sc.nextInt();
 		
 		AdminDao dao = new AdminDaoImpl();
 		
-		String result = dao.updateStatus(cusId);
+		String result = dao.updateStatus(customerId);
 		boolean flag = true;
 		
 		for (int i = 0; i < result.length(); i++) {

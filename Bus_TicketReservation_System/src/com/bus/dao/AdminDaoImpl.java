@@ -25,7 +25,7 @@ public class AdminDaoImpl implements AdminDao{
 	}
 
 	@Override
-	public String addBus(int busNo, String bName, String routeFrom, String routeTo, String bType, String arrival,
+	public String addBus(int busNo, String busName, String routeFrom, String routeTo, String bType, String arrival,
 			String departure, int totalSeats, int availSeats, int fare) {
 		
 		String message = "Bus not Added";
@@ -34,7 +34,7 @@ public class AdminDaoImpl implements AdminDao{
 			PreparedStatement ps = conn.prepareStatement("insert into bus values (?,?,?,?,?,?,?,?,?,?)");
 			
 			ps.setInt(1, busNo);
-			ps.setString(2, bName);
+			ps.setString(2, busName);
 			ps.setString(3, routeFrom);
 			ps.setString(4, routeTo);
 			ps.setString(5, bType);
@@ -87,15 +87,15 @@ public class AdminDaoImpl implements AdminDao{
 	}
 
 	@Override
-	public String updateStatus(int cusId) {
-		String message = "Status not update for customer Id : " + cusId;
+	public String updateStatus(int customerId) {
+		String message = "Status not update for customer Id : " + customerId;
 		
 		try(Connection conn = DBUtil.provideConnection()){
-			PreparedStatement ps = conn.prepareStatement("update booking set status = true where cusId = ?");
-			ps.setInt(1, cusId);
+			PreparedStatement ps = conn.prepareStatement("update booking set status = true where customerId = ?");
+			ps.setInt(1, customerId);
 			
 			int x = ps.executeUpdate();
-			if (x > 0) message = "Status successfully updated for customer Id : " + cusId;
+			if (x > 0) message = "Status successfully updated for customer Id : " + customerId;
 			
 		}
 		catch (SQLException e) {
@@ -117,14 +117,14 @@ public class AdminDaoImpl implements AdminDao{
 			while (rs1.next()) {
 				flag = true;
 				
-				System.out.println(ConsoleColor.BROWN  + "---------------------------------1" + ConsoleColor.RESET);
-				System.out.println(ConsoleColor.BROWN  + "Bus Id : " + rs1.getInt("bId") + ConsoleColor.RESET);
-				System.out.println(ConsoleColor.BROWN + "Bus No : " + rs1.getInt("busNo") + ConsoleColor.RESET);
-				System.out.println(ConsoleColor.BROWN  + "Total tickets : " + (rs1.getInt("seatTo") - rs1.getInt("seatFrom") + 1) + ConsoleColor.RESET);
-				if (rs1.getInt("status") == 1) System.out.println(ConsoleColor.BROWN  + "Status : Booked" + ConsoleColor.RESET);
-				else System.out.println(ConsoleColor.BROWN + "Status : Pending" + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.BROWN  + "+---------------------------------+" + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.BROWN  +"|"+"Bus Id : " + rs1.getInt("bId")+"                       "+"|" + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.BROWN + "|"+"Bus No : " + rs1.getInt("busNo")+"                       "+"|"  + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.BROWN  + "|"+"Total tickets : " + (rs1.getInt("seatTo") - rs1.getInt("seatFrom") + 1)+"               "+"|"  + ConsoleColor.RESET);
+				if (rs1.getInt("status") == 1) System.out.println(ConsoleColor.BROWN  + "|"+"Status : Booked"+"                  " +"|" + ConsoleColor.RESET);
+				else System.out.println(ConsoleColor.BROWN + "|"+"Status : Pending" +"|" + ConsoleColor.RESET);
 				
-				System.out.println(ConsoleColor.BROWN+ "---------------------------------" + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.BROWN+ "+---------------------------------+" + ConsoleColor.RESET);
 			}
 			
 			if (flag == false) System.out.println(ConsoleColor.RED_BACKGROUND + "No tickets found" + ConsoleColor.RESET);

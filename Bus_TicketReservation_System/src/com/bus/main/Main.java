@@ -7,10 +7,10 @@ import com.bus.bean.Customer;
 import com.bus.color.ConsoleColor;
 import com.bus.usecase.AddBusNo2;
 import com.bus.usecase.AdminLoginusecase;
-import com.bus.usecase.BookTicketbNameusecase;
-import com.bus.usecase.CancelTicketbNameusecase;
+import com.bus.usecase.BookTicketbusNameusecase;
+import com.bus.usecase.CancelTicketbusNameusecase;
 import com.bus.usecase.CusLoginusecase;
-import com.bus.usecase.CusSignUp2usecase;
+import com.bus.usecase.CustomersSignUpNo2usecase;
 import com.bus.usecase.UpdateStatususecase;
 import com.bus.usecase.ViewAllTicketsusecase;
 import com.bus.usecase.ViewTicketusecase;
@@ -38,6 +38,7 @@ public class Main {
 		}
 		
 		if (choice == 1) {
+			System.out.println();
 			System.out.println(ConsoleColor.YELLOW_UNDERLINED + "Welcome Admin ! Please Login to your account" + ConsoleColor.RESET);
 			System.out.println();
 			AdminLogin();
@@ -180,9 +181,10 @@ public class Main {
 	}
 	
 	static void customerSignup() {
-		boolean flag = CusSignUp2usecase.cusSignUp();
+		boolean flag = CustomersSignUpNo2usecase.cusSignUp();
 		
 		if (flag) {
+			System.out.println();
 			System.out.println(ConsoleColor.YELLOW_UNDERLINED + "Login to your Account" + ConsoleColor.RESET);
 			System.out.println();
 			customerLogin();
@@ -225,12 +227,12 @@ public class Main {
 	static void customerChoice(int choice, Customer customer) {
 		switch(choice) {
 		case 1 : {
-			BookTicketbNameusecase.BookTicketbName(customer);
+			BookTicketbusNameusecase.BookTicketbName(customer);
 			customerMethods(customer);
 		}
 		break;
 		case 2 : {
-			CancelTicketbNameusecase.cancelTicket(customer);
+			CancelTicketbusNameusecase.cancelTicket(customer);
 			customerMethods(customer);
 		}
 		break;

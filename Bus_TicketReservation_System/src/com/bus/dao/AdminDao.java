@@ -15,7 +15,7 @@ public interface AdminDao {
 	
 	public String addBus(Bus bus);
 	
-	public String updateStatus(int cusId);
+	public String updateStatus(int customerId);
 	
 	public void viewAllTickets();
 }

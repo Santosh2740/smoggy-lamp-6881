@@ -88,7 +88,7 @@ public class CustomerDaoImpl implements CustomerDao{
 			ResultSet rs =  ps.executeQuery();
 			
 			if (rs.next()) {
-				int cusId = rs.getInt("cusId");
+				int customerId = rs.getInt("customerId");
 				String usernamee =  rs.getString("username");
 				String passwordd = rs.getString("password");
 				String firstName = rs.getString("firstName");		
@@ -96,7 +96,7 @@ public class CustomerDaoImpl implements CustomerDao{
 				String address = rs.getString("address");			
 				String mobile = rs.getString("mobile");
 				
-				customer = new Customer(cusId,usernamee, passwordd, firstName, lastName, address, mobile);
+				customer = new Customer(customerId,usernamee, passwordd, firstName, lastName, address, mobile);
 				
 			}
 			else {
@@ -113,14 +113,14 @@ public class CustomerDaoImpl implements CustomerDao{
 	}
 
 	@Override
-	public String bookTicket(String bName, int cusId, int no) throws BusException {
+	public String bookTicket(String busName, int customerId, int no) throws BusException {
 	
 		String message = "Ticket Booking fail";
 		
 		try (Connection conn = DBUtil.provideConnection()){
 			
-			PreparedStatement ps = conn.prepareStatement("select * from bus where bName = ?");
-			ps.setString(1, bName);
+			PreparedStatement ps = conn.prepareStatement("select * from bus where busName = ?");
+			ps.setString(1, busName);
 			
 			ResultSet rs = ps.executeQuery();
 			
@@ -149,8 +149,8 @@ public class CustomerDaoImpl implements CustomerDao{
 					int seatTo = seatFrom + no -1;
 					fare = fare * no;
 					
-					PreparedStatement ps2 = conn.prepareStatement("insert into booking(cusId, busNo, seatFrom, seatTo) values (?, ?, ?, ?)");
-					ps2.setInt(1, cusId);
+					PreparedStatement ps2 = conn.prepareStatement("insert into booking(customerId, busNo, seatFrom, seatTo) values (?, ?, ?, ?)");
+					ps2.setInt(1, customerId);
 					ps2.setInt(2, busNo);
 					ps2.setInt(3, seatFrom);
 					ps2.setInt(4, seatTo);
@@ -168,8 +168,8 @@ public class CustomerDaoImpl implements CustomerDao{
 						if (y <= 0) throw new BusException("Available Seat is not updated");
 						
 						
-						System.out.println(ConsoleColor.BROWN+ "--------------------------------------------" + "\n"
-																   + "Customer Id is : " + cusId + "\n"
+						System.out.println(ConsoleColor.CYAN_BRIGHT+ "--------------------------------------------" + "\n"
+																   + "Customer Id is : " + customerId + "\n"
 																   + "Bus No is : " + busNo + "\n"
 																   + "Seat No is from : " + seatFrom + " to " + seatTo + "\n"
 																   + "Bus fare is : " + fare + "\n"
@@ -183,7 +183,7 @@ public class CustomerDaoImpl implements CustomerDao{
 	
 			}
 			else {
-				throw new BusException("Bus with " + bName + " is not available");
+				throw new BusException("Bus with " + busName + " is not available");
 			}
 			
 		}
@@ -195,13 +195,13 @@ public class CustomerDaoImpl implements CustomerDao{
 	}
 
 	@Override
-	public String cancelTicket(String bName, int cusId) throws BusException {
+	public String cancelTicket(String busName, int customerId) throws BusException {
 		String message = "Ticket cancellation failed";
 		
 		try (Connection conn = DBUtil.provideConnection()){
 				
-				PreparedStatement ps = conn.prepareStatement("select * from bus where bName = ?");
-				ps.setString(1, bName);
+				PreparedStatement ps = conn.prepareStatement("select * from bus where busName = ?");
+				ps.setString(1, busName);
 				
 				ResultSet rs = ps.executeQuery();
 				
@@ -210,9 +210,9 @@ public class CustomerDaoImpl implements CustomerDao{
 					int busNo = rs.getInt("busNo");
 					int availSeats = rs.getInt("availSeats");
 					
-					PreparedStatement ps1 = conn.prepareStatement("select * from booking where busNo = ? and cusId = ?");
+					PreparedStatement ps1 = conn.prepareStatement("select * from booking where busNo = ? and customerId = ?");
 					ps1.setInt(1, busNo);
-					ps1.setInt(2, cusId);
+					ps1.setInt(2, customerId);
 					
 					ResultSet rs1 = ps1.executeQuery();
 					boolean flag = false;
@@ -227,9 +227,9 @@ public class CustomerDaoImpl implements CustomerDao{
 					
 				    if (flag) {
 						
-						PreparedStatement ps2 = conn.prepareStatement("delete from booking where busNo = ? and cusId = ?");
+						PreparedStatement ps2 = conn.prepareStatement("delete from booking where busNo = ? and customerId = ?");
 						ps2.setInt(1, busNo);
-						ps2.setInt(2, cusId);
+						ps2.setInt(2, customerId);
 						
 						int x = ps2.executeUpdate();
 						if (x > 0) {
@@ -250,7 +250,7 @@ public class CustomerDaoImpl implements CustomerDao{
 		
 				}
 				else {
-					throw new BusException("Bus with " + bName + " is not available");
+					throw new BusException("Bus with " + busName + " is not available");
 				}
 				
 			}
@@ -263,25 +263,25 @@ public class CustomerDaoImpl implements CustomerDao{
 	}
 
 	@Override
-	public void viewTicket(int cusId) {
+	public void viewTicket(int customerId) {
 		boolean flag = false;
 		
 		try(Connection conn = DBUtil.provideConnection()){
-			PreparedStatement ps1 = conn.prepareStatement("select * from booking where cusId = ?");
-			ps1.setInt(1, cusId);
+			PreparedStatement ps1 = conn.prepareStatement("select * from booking where customerId = ?");
+			ps1.setInt(1, customerId);
 			
 			ResultSet rs1 = ps1.executeQuery();
 			
 			while (rs1.next()) {
 				flag = true;
-				System.out.println(ConsoleColor.BROWN + "---------------------------" + ConsoleColor.RESET);
-				System.out.println(ConsoleColor.BROWN + "Bus Id : " + rs1.getInt("bId") + ConsoleColor.RESET);
-				System.out.println(ConsoleColor.BROWN + "Bus No : " + rs1.getInt("busNo") + ConsoleColor.RESET);
-				System.out.println(ConsoleColor.BROWN + "Total tickets : " + (rs1.getByte("seatTo") - rs1.getInt("seatFrom") + 1) + ConsoleColor.RESET);
-				if (rs1.getBoolean("status")) System.out.println(ConsoleColor.BROWN + "Status : Booked"  + ConsoleColor.RESET);
-				else System.out.println(ConsoleColor.BROWN + "Status : Pending" + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.CYAN_BRIGHT + "+--------------------------------+" + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.CYAN_BRIGHT + "|"+"Bus Id : " + rs1.getInt("bId") +"                      "+"|" + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.CYAN_BRIGHT + "|"+"Bus No : " + rs1.getInt("busNo")+"                      "+"|"  + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.CYAN_BRIGHT + "|"+"Total tickets : " + (rs1.getByte("seatTo") - rs1.getInt("seatFrom") + 1)+"              "+"|"  + ConsoleColor.RESET);
+				if (rs1.getBoolean("status")) System.out.println(ConsoleColor.CYAN_BRIGHT + "|"+"Status : Booked"+"                 " +"|"  + ConsoleColor.RESET);
+				else System.out.println(ConsoleColor.CYAN_BRIGHT +"|"+ "Status : Pending" + ConsoleColor.RESET);
 				
-				System.out.println(ConsoleColor.BROWN + "----------------------------" + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.CYAN_BRIGHT + "+--------------------------------+" + ConsoleColor.RESET);
 			}
 			
 			if (flag == false) System.out.println(ConsoleColor.RED_BACKGROUND + "No tickets found" + ConsoleColor.RESET);

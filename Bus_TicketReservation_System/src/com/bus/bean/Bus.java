@@ -2,7 +2,7 @@ package com.bus.bean;
 
 public class Bus {
 	private int busNo;
-	private String bName;
+	private String busName;
 	private String routeFrom;
 	private String routeTo;
 	private String bType;
@@ -12,11 +12,11 @@ public class Bus {
 	private int availSeats;
 	private int fare;
 
-	public Bus(int busNo, String bName, String routeFrom, String routeTo, String bType, String arrival,
+	public Bus(int busNo, String busName, String routeFrom, String routeTo, String bType, String arrival,
 			String departure, int totalSeats, int availSeats, int fare) {
 		super();
 		this.busNo = busNo;
-		this.bName = bName;
+		this.busName = busName;
 		this.routeFrom = routeFrom;
 		this.routeTo = routeTo;
 		this.bType = bType;
@@ -41,11 +41,11 @@ public class Bus {
 	}
 
 	public String getbName() {
-		return bName;
+		return busName;
 	}
 
-	public void setbName(String bName) {
-		this.bName = bName;
+	public void setbName(String busName) {
+		this.busName = busName;
 	}
 
 	public String getRouteFrom() {
@@ -114,7 +114,7 @@ public class Bus {
 
 	@Override
 	public String toString() {
-		return "Bus [busNo=" + busNo + ", bName=" + bName + ", routeFrom=" + routeFrom + ", routeTo=" + routeTo
+		return "Bus [busNo=" + busNo + ", busName=" + busName + ", routeFrom=" + routeFrom + ", routeTo=" + routeTo
 				+ ", bType=" + bType + ", arrival=" + arrival + ", departure=" + departure + ", totalSeats="
 				+ totalSeats + ", availSeats=" + availSeats + ", fare=" + fare + "]";
 	}
