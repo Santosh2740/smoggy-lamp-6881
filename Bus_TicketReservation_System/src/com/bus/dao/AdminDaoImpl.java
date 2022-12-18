@@ -118,11 +118,11 @@ public class AdminDaoImpl implements AdminDao{
 				flag = true;
 				
 				System.out.println(ConsoleColor.BROWN  + "+---------------------------------+" + ConsoleColor.RESET);
-				System.out.println(ConsoleColor.BROWN  +"|"+"Bus Id : " + rs1.getInt("bId")+"                       "+"|" + ConsoleColor.RESET);
-				System.out.println(ConsoleColor.BROWN + "|"+"Bus No : " + rs1.getInt("busNo")+"                       "+"|"  + ConsoleColor.RESET);
-				System.out.println(ConsoleColor.BROWN  + "|"+"Total tickets : " + (rs1.getInt("seatTo") - rs1.getInt("seatFrom") + 1)+"               "+"|"  + ConsoleColor.RESET);
-				if (rs1.getInt("status") == 1) System.out.println(ConsoleColor.BROWN  + "|"+"Status : Booked"+"                  " +"|" + ConsoleColor.RESET);
-				else System.out.println(ConsoleColor.BROWN + "|"+"Status : Pending" +"|" + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.BROWN  +"|"+" "+"Bus Id : " + rs1.getInt("bId")+"                      "+"|" + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.BROWN + "|"+" "+"Bus No : " + rs1.getInt("busNo")+"                      "+"|"  + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.BROWN  + "|"+" "+"Total tickets : " + (rs1.getInt("seatTo") - rs1.getInt("seatFrom") + 1)+"              "+"|"  + ConsoleColor.RESET);
+				if (rs1.getInt("status") == 1) System.out.println(ConsoleColor.BROWN  + "|"+" "+"Status : Booked"+"                 " +"|" + ConsoleColor.RESET);
+				else System.out.println(ConsoleColor.BROWN + "|"+" "+"Status : Pending" +"|" + ConsoleColor.RESET);
 				
 				System.out.println(ConsoleColor.BROWN+ "+---------------------------------+" + ConsoleColor.RESET);
 			}

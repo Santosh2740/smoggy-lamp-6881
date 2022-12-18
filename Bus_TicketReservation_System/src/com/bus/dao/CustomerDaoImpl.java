@@ -275,11 +275,11 @@ public class CustomerDaoImpl implements CustomerDao{
 			while (rs1.next()) {
 				flag = true;
 				System.out.println(ConsoleColor.CYAN_BRIGHT + "+--------------------------------+" + ConsoleColor.RESET);
-				System.out.println(ConsoleColor.CYAN_BRIGHT + "|"+"Bus Id : " + rs1.getInt("bId") +"                      "+"|" + ConsoleColor.RESET);
-				System.out.println(ConsoleColor.CYAN_BRIGHT + "|"+"Bus No : " + rs1.getInt("busNo")+"                      "+"|"  + ConsoleColor.RESET);
-				System.out.println(ConsoleColor.CYAN_BRIGHT + "|"+"Total tickets : " + (rs1.getByte("seatTo") - rs1.getInt("seatFrom") + 1)+"              "+"|"  + ConsoleColor.RESET);
-				if (rs1.getBoolean("status")) System.out.println(ConsoleColor.CYAN_BRIGHT + "|"+"Status : Booked"+"                 " +"|"  + ConsoleColor.RESET);
-				else System.out.println(ConsoleColor.CYAN_BRIGHT +"|"+ "Status : Pending" + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.CYAN_BRIGHT + "|"+" "+"Bus Id : " + rs1.getInt("bId") +"                     "+"|" + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.CYAN_BRIGHT + "|"+" "+"Bus No : " + rs1.getInt("busNo")+"                     "+"|"  + ConsoleColor.RESET);
+				System.out.println(ConsoleColor.CYAN_BRIGHT + "|"+" "+"Total tickets : " + (rs1.getByte("seatTo") - rs1.getInt("seatFrom") + 1)+"             "+"|"  + ConsoleColor.RESET);
+				if (rs1.getBoolean("status")) System.out.println(ConsoleColor.CYAN_BRIGHT + "|"+" "+"Status : Booked"+"                " +"|"  + ConsoleColor.RESET);
+				else System.out.println(ConsoleColor.CYAN_BRIGHT +"|"+ " "+"Status : Pending" + ConsoleColor.RESET);
 				
 				System.out.println(ConsoleColor.CYAN_BRIGHT + "+--------------------------------+" + ConsoleColor.RESET);
 			}
